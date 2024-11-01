@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump It Up</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #18202e;
+            --primary-color-light: #37496b;
+            --secondary-color: #ba77da;
+            --secondary-color-dark: #5c2569;
+            --text-light: #d1d5db;
+            --white: #ffffff;
+            --black: #000000;
+            --max-width: 1200px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url('meghan-holmes-buWcS7G1_28-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: "Poppins", sans-serif;
+            color: var(--white);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px); 
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+        }
+
+        .nav-logo img {
+            max-width: 120px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .link a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: var(--secondary-color);
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            border: none;
+            font-size: 0.9rem;
+            color: var(--white);
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: var(--secondary-color-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                padding-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="#"><img src="logo.png" alt="Pump It Up logo"></a>
+                <span>Pump It Up</span>
+            </div>
+            <ul class="nav-links">
+                <li class="link"><a href="work.html"> Home </a></li>
+                <li class="link"><a href="workouts.html"> Workout Guide </a></li>
+                <li class="link"><a href="nutrition.html"> Nutrition Guide </a></li>
+                <li class="link"><a href="photo.html"> Pictures </a></li>
+                <li><a href="contact.html" class="button">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        Multiple Workouts are provided here according to your needs. What kind of workout you're looking for?
+        <div class="workout-selection">
+            <button class="type-of-workout" onclick="document.getElementById('Beginners').scrollIntoView({ behavior: 'smooth' });">Beginners</button>
+            <button class="type-of-workout" onclick="document.getElementById('Intermediate').scrollIntoView({ behavior: 'smooth' });">Intermediate</button>
+
+        </div>
+    </section>
+</body>
+</html>

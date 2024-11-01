@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump It Up</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #18202e;
+            --primary-color-light: #37496b;
+            --secondary-color: #ba77da;
+            --secondary-color-dark: #5c2569;
+            --text-light: #d1d5db;
+            --white: #ffffff;
+            --black: #000000;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --max-width: 1200px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url('meghan-holmes-buWcS7G1_28-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: "Poppins", sans-serif;
+            color: var(--white);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            backdrop-filter: blur(2px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo img {
+            max-width: 100px;
+        }
+
+        .site-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .link a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: var(--secondary-color);
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            border: none;
+            font-size: 0.9rem;
+            color: var(--white);
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: var(--secondary-color-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-logo {
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .site-title {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                padding-top: 0.5rem;
+            }
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: xx-large;
+            margin: 1rem 0;
+        }
+
+        .gender-selection {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem;
+            justify-content: center;
+        }
+
+        .gender-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: var(--white);
+            background-color: var(--primary-color-light);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .gender-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 90%;
+            max-width: var(--max-width);
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="#"><img src="logo.png" alt="Pump It Up logo"></a>
+                <span class="site-title">Pump It Up</span>
+            </div>
+            <ul class="nav-links">
+                <li class="link"><a href="work.html">Home</a></li>
+                <li class="link"><a href="workouts.html">Workout Guide</a></li>
+                <li class="link"><a href="nutrition.html">Nutrition Guide</a></li>
+                <li class="link"><a href="photo.html">Pictures</a></li>
+                <li><a href="contact.html" class="button">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <h1>Are you Male or Female?</h1>
+        <div class="gender-selection">
+            <button class="gender-button" onclick="document.getElementById('men-section').scrollIntoView({ behavior: 'smooth' });">Male</button>
+            <button class="gender-button" onclick="document.getElementById('women-section').scrollIntoView({ behavior: 'smooth' });">Female</button>
+        </div>
+    </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <section id="men-section">
+        <h2>Transformation of Men</h2>
+        <div class="gallery">
+            <img src="11.jpg" alt="Male Transformation 1" onclick="openLightbox('11.jpg', 'Male Transformation - Progress 1')">
+            <img src="10.jpg" alt="Male Transformation 2" onclick="openLightbox('10.jpg', 'Male Transformation - Progress 2')">
+            <img src="9.jpg" alt="Male Transformation 3" onclick="openLightbox('9.jpg', 'Male Transformation - Progress 3')">
+            <img src="8.jpg" alt="Male Transformation 4" onclick="openLightbox('8.jpg', 'Male Transformation - Progress 4')">
+            <img src="men.avif" alt="Male Transformation 5" onclick="openLightbox('men.avif', 'Male Transformation - Progress 5')">
+            <img src="men2.jpg" alt="Male Transformation 6" onclick="openLightbox('men2.jpg', 'Male Transformation - Progress 6')">
+            <img src="men3.jpg" alt="Male Transformation 7" onclick="openLightbox('men3.jpg', 'Male Transformation - Progress 7')">
+            <img src="men4.jpg" alt="Male Transformation 8" onclick="openLightbox('men4.jpg', 'Male Transformation - Progress 8')">
+        </div>
+    </section>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <section id="women-section">
+        <h2>Transformation of Women</h2>
+        <div class="gallery">
+            <img src="7.jpg" alt="Female Transformation 1" onclick="openLightbox('7.jpg', 'Female Transformation - Progress 1')">
+            <img src="6.jpg" alt="Female Transformation 2" onclick="openLightbox('6.jpg', 'Female Transformation - Progress 2')">
+            <img src="5.jpg" alt="Female Transformation 3" onclick="openLightbox('5.jpg', 'Female Transformation - Progress 3')">
+            <img src="4.jpg" alt="Female Transformation 4" onclick="openLightbox('4.jpg', 'Female Transformation - Progress 4')">
+            <img src="women replacement img5.jpg" alt="Female Transformation 5" onclick="openLightbox('women replacement img5.jpg', 'Female Transformation - Progress 5')">
+            <img src="women2.jpg" alt="Female Transformation 6" onclick="openLightbox('women2.jpg', 'Female Transformation - Progress 6')">
+            <img src="women3.jpg" alt="Female Transformation 7" onclick="openLightbox('women3.jpg', 'Female Transformation - Progress 7')">
+            <img src="women4.jpg" alt="Female Transformation 8" onclick="openLightbox('women4.jpg', 'Female Transformation - Progress 8')">
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-image" src="" alt="Lightbox Image">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(imageUrl, captionText) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-image').src = imageUrl;
+            document.getElementById('lightbox-caption').textContent = captionText;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

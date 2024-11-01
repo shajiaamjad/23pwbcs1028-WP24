@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump It Up</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #18202e;
+            --primary-color-light: #37496b;
+            --secondary-color: #ba77da;
+            --secondary-color-dark: #5c2569;
+            --text-light: #d1d5db;
+            --white: #ffffff;
+            --black: #000000;
+            --max-width: 1200px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url('meghan-holmes-buWcS7G1_28-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: "Poppins", sans-serif;
+            color: var(--white);
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: flex-start; 
+            padding: 20px; 
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 1rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.2); 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(2px);
+            width: 100%; /* Ensure nav takes full width */
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+        }
+
+        .nav-logo img {
+            max-width: 120px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .link a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: var(--secondary-color);
+        }
+
+        .button1 {
+            padding: 0.5rem 1rem;
+            border: none;
+            font-size: 0.9rem;
+            color: var(--white);
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button1:hover {
+            background-color: var(--secondary-color-dark);
+        }
+
+        .container {
+            width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.4); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px); 
+            margin-top: 10px;
+        }
+
+        .container h1 {
+            font-size: 1.5em; 
+            margin-bottom: 0.5em;
+            color: var(--text-light);
+        }
+
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 1em;
+            font-size: 1em;
+            color: #000000;
+        }
+
+        input[type="text"], select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--text-light);
+        }
+
+        .button2 {
+            padding: 1rem 1.5rem;
+            width: 100%;
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button2:hover {
+            background-color: var(--secondary-color-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                padding-top: 0.5rem;
+            }
+
+            .container {
+                width: 90%; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="#"><img src="logo.png" alt="Pump It Up logo"></a>
+                <span>Pump It Up</span>
+            </div>
+            <ul class="nav-links">
+                <li class="link"><a href="work.html"> Home </a></li>
+                <li class="link"><a href="workouts.html"> Workout Guide </a></li>
+                <li class="link"><a href="nutrition.html"> Nutrition Guide </a></li>
+                <li class="link"><a href="photo.html"> Pictures </a></li>
+                <li><a href="contact.html" class="button1">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>To help you find a good diet, tell us: </h1>
+        <form id="bmiForm">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label for="height">Height (cm):</label>
+            <input type="text" id="height" name="height" placeholder="Enter your height in cm" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="text" id="weight" name="weight" placeholder="Enter your weight in kg" required>
+
+            <button type="button" class="button2" onclick="calculateBMI()">Calculate</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <section id="Underweight">
+        <h1> Nutritious Food For Underweight</h1>
+        <p> Being underweight can pose health risks, just as being overweight can. It’s essential for underweight individuals to focus on nutritious, calorie-dense foods that provide essential vitamins, minerals, and healthy fats, helping the body gain weight in a balanced way. Foods rich in proteins, complex carbohydrates, and good fats support muscle growth, energy levels, and overall well-being. Incorporating whole grains, lean proteins, nuts, seeds, dairy, and healthy oils into daily meals can encourage gradual, healthy weight gain while providing sustained energy and improving nutrient intake. A well-rounded approach to nutrition can help individuals reach a healthier weight and enhance their quality of life.</p>
+        <ul>
+        <li><h2> Nuts and Nut Butters: </h2></li>
+        <p> Almonds, walnuts, cashews, and nut butters like peanut or almond butter are calorie-dense and full of healthy fats, protein, and fiber. </p>
+        <li><h2>Whole-Grain Bread and Cereals:</h2></li>
+        <p> Whole grains like oats, quinoa, whole-grain bread, and brown rice offer complex carbohydrates that provide energy and promote weight gain when included regularly. </p>
+        <li><h2>Cheese and Full-Fat Dairy:</h2></li>
+        <p> Cheese, yogurt, milk, and other full-fat dairy products are excellent sources of protein, calcium, and healthy fats, all beneficial for gaining weight healthfully. </p>
+        <li><h2>Starchy Vegetables:</h2></li>
+        <p> Potatoes, sweet potatoes, and squash are great options for adding carbohydrates, which help support energy levels and promote weight gain. </p>
+        <li<h2>Lean Meats: </h2></li>
+        <p> Chicken, turkey, and lean cuts of red meat provide protein, iron, and B vitamins essential for building muscle and overall energy. </p>
+        <li><h2>Eggs:</h2></li>
+        <p> A versatile and nutrient-dense option, eggs provide healthy fats, protein, and various vitamins that support muscle growth and healthy weight gain. </p>
+        <li><h2>Dried Fruits:</h2></li>
+        <p> Dried fruits like dates, raisins, apricots, and figs are calorie-dense and nutrient-rich, offering a concentrated source of natural sugars, fiber, and essential minerals. </p>
+        <li><h2>Healthy Oils and Fats:</h2></li>
+        <p> Adding olive oil, coconut oil, or other plant-based oils to meals can increase caloric intake without a large increase in food volume, making it easier to consume more calories throughout the day. </p>
+        </ul>
+    </section>
+
+    <section id="Normal">
+        <h1> Nutritious Food For Perfect</h1>
+        <p> Achieving a healthy, ideal weight is about more than just counting calories; it involves choosing nutrient-rich foods that nourish the body and support overall well-being. A balanced diet includes a variety of wholesome foods like lean proteins, whole grains, healthy fats, and plenty of fruits and vegetables. These foods provide essential vitamins, minerals, and antioxidants to promote energy, muscle development, and a strong immune system. Prioritizing nutrient-dense meals not only helps maintain an ideal weight but also fosters long-term health, vitality, and resilience. A mindful approach to eating can make reaching and maintaining your perfect weight an enjoyable, sustainable journey.</p>
+        <ul>
+        <li><h2> Lean Protein: </h2></li>
+        <p> Sources like chicken, turkey, fish, eggs, tofu, and legumes provide high-quality protein, essential for muscle maintenance and metabolism. Protein helps keep you full longer and stabilizes energy levels. </p>
+        <li><h2> Whole Grains: </h2></li>
+        <p> Opt for complex carbs like quinoa, brown rice, oats, barley, and whole-grain bread, which provide steady energy, fiber, and essential vitamins and minerals. They support a healthy digestive system and keep you full. </p>
+        <li><h2> Vegetables: </h2></li>
+        <p> Leafy greens (spinach, kale, Swiss chard), cruciferous vegetables (broccoli, cauliflower), and brightly colored options like bell peppers and carrots are rich in vitamins, minerals, and antioxidants, promoting cellular health and aiding in weight management. </p>
+        <li><h2> Healthy Fats: </h2></li>
+        <p> Avocado, nuts, seeds, olive oil, and fatty fish (like salmon) contain unsaturated fats and omega-3 fatty acids that support brain health, reduce inflammation, and provide sustained energy. </p>
+        <li><h2> Fruits: </h2></li>
+        <p> Include a variety of fruits such as berries, apples, oranges, bananas, and grapes for fiber, antioxidants, and natural sweetness that satisfy sugar cravings while providing essential nutrients.</p>
+        <li><h2> Dairy or Dairy Alternatives: </h2></li>
+        <p> Low-fat dairy options like Greek yogurt, cottage cheese, or fortified plant-based alternatives (almond, soy, oat milk) provide protein, calcium, and probiotics beneficial for digestion and bone health. </p>
+        <li><h2> Legumes and Beans: </h2></li>
+        <p> Lentils, chickpeas, black beans, and other legumes are high in fiber, protein, and iron, supporting steady energy and helping control appetite. </p>
+        <li><h2> Hydrating Foods and Water: </h2></li>
+        <p> Cucumber, watermelon, oranges, and leafy greens have high water content and are low-calorie, keeping you hydrated and helping with satiety. </p>
+        <li><h2> Herbs and Spices: </h2></li>
+        <p> Use spices like turmeric, cinnamon, ginger, and herbs like basil and parsley to enhance flavor without added calories, plus they offer various health benefits, such as antioxidant and anti-inflammatory properties. </p>
+        <li><h2> Green Tea or Herbal Teas: </h2></li>
+        <p> Green tea, rich in antioxidants, may boost metabolism and improve fat oxidation, making it a great addition to a balanced diet. </p>
+        </ul>
+    </section>
+
+    <section id="Overweight">
+        <h1> Nutritious Food For Overweight</h1>
+        <p> For those working toward a healthier weight, focusing on nutrient-dense foods is key to achieving lasting results. Instead of restrictive diets, a balanced approach that emphasizes whole foods—like lean proteins, fiber-rich vegetables, whole grains, and healthy fats—can support weight loss and overall well-being. Nutrient-dense foods provide essential vitamins and minerals, promote satiety, and help regulate metabolism without excess calories. This approach allows for gradual, sustainable weight management while also fostering energy, mental clarity, and improved health. Making mindful food choices can turn the journey to a healthier weight into a positive, rewarding experience.</p>
+        <ul>
+        <li><h2> High-Fiber Vegetables: </h2></li>
+        <p> Fill your plate with leafy greens (spinach, kale), cruciferous vegetables (broccoli, cauliflower), and other fiber-rich veggies like zucchini and carrots. These are low in calories but high in volume, helping you feel full without excess calories. </p>
+        <li><h2> Lean Proteins: </h2></li>
+        <p> Sources like skinless chicken, turkey, fish, tofu, and legumes are excellent for preserving muscle mass and increasing satiety. Protein helps stabilize blood sugar and can reduce cravings throughout the day. </p>
+        <li><h2> Whole Grains in Moderation: </h2></li>
+        <p>  Foods like quinoa, barley, brown rice, and oats are fiber-rich and provide slow-digesting carbs, offering long-lasting energy. Be mindful of portion sizes, as whole grains are calorie-dense. </p>
+        <li><h2> Fruits Low in Sugar: </h2></li>
+        <p> Choose low-sugar fruits such as berries, apples, and pears, which are high in fiber and antioxidants. These options satisfy sweet cravings with less impact on blood sugar. </p>
+        <li><h2> Healthy Fats in Moderation: </h2></li>
+        <p> Avocado, nuts, seeds, and olive oil provide essential fatty acids that support heart health and satiety. Keep portions small, as fats are calorie-dense. </p>
+        <li><h2> Probiotic-Rich Foods: </h2></li>
+        <p> Greek yogurt, kefir, kimchi, and sauerkraut help support digestion and may promote a healthy gut microbiome, which can influence weight management. </p>
+        <li><h2> Green Tea or Herbal Teas: </h2></li>
+        <p> Green tea contains catechins, which may boost metabolism and fat oxidation. Herbal teas can be a satisfying, calorie-free way to reduce cravings. </p>
+        </ul>
+    </section>
+
+    <script>
+        function calculateBMI() {
+            const age = document.getElementById("age").value;
+            const height = document.getElementById("height").value;
+            const weight = document.getElementById("weight").value;
+            const result = document.getElementById("result");
+
+            if (weight >= 20 && weight <= 45) {
+                result.innerHTML = "You are in the <span style='color: blue;'>Underweight</span> category.";
+            } else if (weight > 45 && weight <= 65) {
+                result.innerHTML = "You are in the <span style='color: green;'>Normal Body</span> category.";
+            } else if (weight > 65) {
+                result.innerHTML = "You are in the <span style='color: red;'>Overweight</span> category.";
+            } else {
+                result.innerHTML = "Please enter a valid weight.";
+            }
+        }
+    </script>
+</body>
+</html>
