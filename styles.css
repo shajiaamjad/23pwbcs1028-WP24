@@ -95,7 +95,7 @@ main {
 
 
 .hero {
-    background: url(./Images/hero.jpg ) center center/cover no-repeat;
+    background: url(./Images/hero.jpg) center center/cover no-repeat;
     color: #fff;
     height: 60vh;
     text-align: center;
