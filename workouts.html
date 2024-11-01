@@ -3,132 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump It Up</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap">
+    <title>Workout Routines | Fitness & Wellness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #18202e;
-            --primary-color-light: #37496b;
-            --secondary-color: #ba77da;
-            --secondary-color-dark: #5c2569;
-            --text-light: #d1d5db;
-            --white: #ffffff;
-            --black: #000000;
-            --max-width: 1200px;
-        }
 
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+.workout-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
 
-        body {
-            min-height: 100vh;
-            background-image: url('meghan-holmes-buWcS7G1_28-unsplash.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: "Poppins", sans-serif;
-            color: var(--white);
-        }
+    .workout-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    Padding: 20px;
+    margin: 10px;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+}
 
-        nav {
-            max-width: var(--max-width);
-            margin: auto;
-            padding: 1rem 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(2px); 
-        }
+    .workout-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px; 
+}
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--white);
-        }
+.workout-card p {
+    margin: 5px 0;
+}
 
-        .nav-logo img {
-            max-width: 120px;
-        }
+.workout-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+@media (max-width: 768px) {
+    .workout-card {
+        flex: 1 1 calc(45% - 20px);
+    }
+}
 
-        .link a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .link a:hover {
-            color: var(--secondary-color);
-        }
-
-        .button {
-            padding: 0.5rem 1rem;
-            border: none;
-            font-size: 0.9rem;
-            color: var(--white);
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: var(--secondary-color-dark);
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
-                width: 100%;
-                padding-top: 0.5rem;
-            }
-        }
+@media (max-width: 480px) {
+    .workout-card {
+        flex: 1 1 100%;
+    }
+}
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="nav-logo">
-                <a href="#"><img src="logo.png" alt="Pump It Up logo"></a>
-                <span>Pump It Up</span>
+        <div class="container">
+            <div class="logo">
+                <h1>Fitness Gym</h1>
             </div>
-            <ul class="nav-links">
-                <li class="link"><a href="work.html"> Home </a></li>
-                <li class="link"><a href="workouts.html"> Workout Guide </a></li>
-                <li class="link"><a href="nutrition.html"> Nutrition Guide </a></li>
-                <li class="link"><a href="photo.html"> Pictures </a></li>
-                <li><a href="contact.html" class="button">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section>
-        Multiple Workouts are provided here according to your needs. What kind of workout you're looking for?
-        <div class="workout-selection">
-            <button class="type-of-workout" onclick="document.getElementById('Beginners').scrollIntoView({ behavior: 'smooth' });">Beginners</button>
-            <button class="type-of-workout" onclick="document.getElementById('Intermediate').scrollIntoView({ behavior: 'smooth' });">Intermediate</button>
-
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="workouts.html">Workout Routines</a></li>
+                    <li><a href="nutrition.html">Nutrition Guide</a></li>
+                    <li><a href="photos.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>    
+    <main>
+        <h1 style="text-align: center;">Workouts</h1>
+        
+        <div class="workout-container">
+            <div class="workout-card">
+                <span>
+                <h2>Full Body Workout</h2>
+                <p>Exercise: Push-ups</p>
+                <p>Sets: 3</p>
+                <p>Reps: 12</p>
+            </span>
+                <img src="./Images/full-body-workout.jpg" alt="Push-ups" width="600px" height="600px">
+            </div>
+        
+            <div class="workout-card">
+                <h2>Cardio Routine</h2>
+                <p>Exercise: Running</p>
+                <p>Duration: 30 minutes</p>
+                <p>Machine : Cardio machine</p>
+                <img src="./Images/cardio.jpg" alt="Push-ups" width="600px" height="600px">
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fitness & Wellness. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
